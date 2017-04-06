@@ -28,20 +28,18 @@ doc.each_element('//Valute[@ID="R01235"]') do |currency_tag|
 end
 value = value.to_s.sub(',', '.').to_f
 puts "Сколько у вас рублей?"
+ruble = gets.to_f
 
-ruble = gets.chomp.to_f
-puts
 puts "Сколько у вас долларов?"
-dollar = gets.chomp.to_f
+dollar = gets.to_f
 
 dollars = (dollar * value)
-
-difference = ((((dollar * value) + ruble) / 2 - ruble) / value)
+difference = ((((dollar * value) + ruble) / 2 - ruble) / value).round(2)
 
 if ruble > dollars
-  puts "Вам нужно продать " + (difference.abs * value).to_s + " рублей."
+  puts "Вам нужно купить #{difference.abs} долларов."
 elsif difference == 0
   abort "Все на месте, Спи спокойно! Яйца в разниц корзинах - поровну!"
 else
-  puts "Вам нужно купить " + (difference.abs * value).round(2).to_s + " рублей."
+  puts "Вам нужно продать #{difference.abs} долларов."
 end
