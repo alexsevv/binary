@@ -12,7 +12,6 @@ require 'net/http'
 require 'rexml/document'
 
 URL = 'http://www.cbr.ru/scripts/XML_daily.asp'.freeze
-
 # Достаем данные с сайта Центробанка и записываем их в XML
 response = Net::HTTP.get_response(URI.parse(URL))
 doc = REXML::Document.new(response.body)
