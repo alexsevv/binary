@@ -33,12 +33,12 @@ puts "Сколько у вас долларов?"
 dollar = gets.to_f
 
 dollars = (dollar * value)
-difference = ((((dollar * value) + ruble) / 2 - ruble) / value).round(2)
+puts difference = (((dollars + ruble) / 2 - ruble) / value).round(2)
 
-if ruble > dollars
-  puts "Вам нужно купить #{difference.abs} долларов."
-elsif difference == 0
-  abort "Все на месте, Спи спокойно! Яйца в разниц корзинах - поровну!"
+if difference.abs < 1
+  puts "Все на месте, Спи спокойно! Яйца в разниц корзинах - поровну!"
+elsif ruble > dollars
+  puts "Вам нужно купить долларов: #{difference.abs} $."
 else
-  puts "Вам нужно продать #{difference.abs} долларов."
+  puts "Вам нужно продать долларов: #{difference.abs} $."
 end
